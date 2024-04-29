@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83d90ce8-d7a9-40a9-8829-17c2c8ceddb1" name="Changes" comment="" />
+    <list default="true" id="83d90ce8-d7a9-40a9-8829-17c2c8ceddb1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tp3/etudiant/client/Achat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tp3/etudiant/client/Achat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tp3/etudiant/produit/AbstractInventaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tp3/etudiant/produit/AbstractInventaire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tp3/etudiant/section/Vrac.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tp3/etudiant/section/Vrac.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -30,6 +38,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -83,6 +92,7 @@
       <workItem from="1714332664982" duration="185000" />
       <workItem from="1714402655727" duration="765000" />
       <workItem from="1714403439861" duration="2003000" />
+      <workItem from="1714407602372" duration="2465000" />
     </task>
     <servers />
   </component>
@@ -90,15 +100,6 @@
     <option name="version" value="3" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/tp3/etudiant/Magasin.java</url>
-          <line>139</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="((Magasin)this).panier" custom="tp3.etudiant.Magasin" />

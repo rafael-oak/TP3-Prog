@@ -9,7 +9,6 @@ public abstract class AbstractInventaire extends AbstractProduit {
     public final float RABAIS_MINIMUM = 0.05f;
     public final float RABAIS_MOYEN = 0.10f;
     public final float RABAIS_MAXIMUM = 0.15f;
-
     private String sectionProduit = "Default";
 
     // Constructeur de AbstractInventaire

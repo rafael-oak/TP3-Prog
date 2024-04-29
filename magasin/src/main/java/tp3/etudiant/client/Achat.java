@@ -3,12 +3,18 @@ package tp3.etudiant.client;
 import tp3.echange.Descriptible;
 import tp3.application.AbstractProduit;
 import tp3.etudiant.produit.AbstractInventaire;
+import tp3.etudiant.section.Vrac;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+import static tp3.etudiant.section.Vrac.VOLUME_VRAC_MAX_DECIMETRE;
+
 public class Achat implements Descriptible {
+    private Vrac vrac;
+    public final double RABAIS_MAXIMUM = 25;
+
     Collection<AbstractProduit> listeAchat;
     private double montantBrute;
     private double rabaisGlobal;
@@ -17,7 +23,8 @@ public class Achat implements Descriptible {
     private double montantTaxes;
     public final double TAXES_POUR_CE_TP = 14;
     private double montantTotal;
-
+    private double rabaisVrac;
+    private double rabaisPresentoir;
 
     private String acheteur;
     private int numFacturation = 0;
@@ -30,15 +37,12 @@ public class Achat implements Descriptible {
         this.rabaisGlobal = rabaisGlobal;
         this.numFacturation = this.compteurFacture++;
         listeAchat = new ArrayList<AbstractProduit>();
+        vrac = new Vrac();
     }
 
 
     public String imprimeFacture() {
         String texte = "Facturé à : " + acheteur + "\nFacturé le : " + momentAchat + "\n\nContient " + listeAchat.size() + " produits";
-
-
-
-
 
         Iterator<AbstractProduit> iterListeAchat = listeAchat.iterator();
         while (iterListeAchat.hasNext()) {
@@ -104,4 +108,32 @@ public class Achat implements Descriptible {
             this.montantRabaisProduit += (((AbstractInventaire) produit).getPrixProduit() * (((AbstractInventaire) produit).getRabais() / 100));
         }
     }
+
+    public void RabaisSection() {
+        Iterator<AbstractProduit> iterProduit = listeAchat.iterator();
+        double volumeVrac = 0;
+
+        while (iterProduit.hasNext()) {
+            AbstractProduit produit = iterProduit.next();
+            if (((AbstractInventaire) produit).getSectionProduit().equals("vrac")) {
+                volumeVrac += ((AbstractInventaire) produit).getVolumeProduit();
+            } else if (((AbstractInventaire) produit).getSectionProduit().equals("presentoir")) {
+                rabaisPresentoir += calculeRabaisPresentoir(produit);
+            }
+        }
+        this.rabaisVrac = calculeMontantRabaisVrac(calculeRabaisVrac(volumeVrac));
+
+    }
+
+    public double calculeRabaisVrac(double volume) {
+        return (volume /  vrac.getVolumeTotal()) * RABAIS_MAXIMUM;
+    }
+    public double calculeMontantRabaisVrac(double rabais) {
+        return montantBrute * (rabais / 100);
+    }
+    public double calculeRabaisPresentoir(AbstractProduit produit) {
+
+    }
+
+
 }

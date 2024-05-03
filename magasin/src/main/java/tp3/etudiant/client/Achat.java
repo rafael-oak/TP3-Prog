@@ -22,6 +22,8 @@ public class Achat implements Descriptible {
     private double montantRabaisProduit;
     private double montantTaxes;
     public final double TAXES_POUR_CE_TP = 14;
+    public final int DELAI_FIXE_RABAISP = 3;
+    public final double montantRabaisPresentoir = 10;
     private double montantTotal;
     private double rabaisVrac;
     private double rabaisPresentoir;
@@ -99,7 +101,7 @@ public class Achat implements Descriptible {
         }
     }
     public void calculeMontantTotal() {
-        this.montantTotal = (this.montantBrute + this.montantTaxes) - this.montantRabaisGlobal;
+        this.montantTotal = (this.montantBrute + this.montantTaxes) - this.montantRabaisGlobal - this.;
     }
     public void calculeMontantRabaisProduit() {
         Iterator<AbstractProduit>  iterProduit = listeAchat.iterator();
@@ -132,6 +134,8 @@ public class Achat implements Descriptible {
         return montantBrute * (rabais / 100);
     }
     public double calculeRabaisPresentoir(AbstractProduit produit) {
+
+        return (((produit.getDate().getDayOfMonth()) - momentAchat.getDayOfMonth()) > DELAI_FIXE_RABAISP)? montantBrute * (rabaisPresentoir / 100) : 0;
 
     }
 

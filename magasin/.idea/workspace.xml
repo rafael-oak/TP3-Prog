@@ -6,9 +6,36 @@
   <component name="ChangeListManager">
     <list default="true" id="83d90ce8-d7a9-40a9-8829-17c2c8ceddb1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tp3/application/AbstractProduit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tp3/application/AbstractProduit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tp3/etudiant/client/Achat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tp3/etudiant/client/Achat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tp3/etudiant/produit/AbstractInventaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tp3/etudiant/produit/AbstractInventaire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tp3/etudiant/section/Vrac.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tp3/etudiant/section/Vrac.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tp3/etudiant/section/Entrepot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tp3/etudiant/section/Entrepot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/application/ProduitClassTreeCell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/application/ProduitListCell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/application/TableContenuCell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/Magasin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/client/Achat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/client/Panier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/produit/AbstractBakery.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/produit/AbstractImperishable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/produit/AbstractInventaire.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/produit/AbstractMateriel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/produit/AbstractPastry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/produit/AbstractPerishable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/produit/Bread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/produit/Cake.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/produit/Croissant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/produit/Donut.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/produit/Mixer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/produit/Oven.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/section/AireDesPresentoirs$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/section/AireDesPresentoirs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/section/Charite$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/section/Charite.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/section/Presentoir$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/section/Presentoir.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/section/Stockage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tp3/etudiant/section/Vrac.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tp3/etudiant/section/Vrac.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +44,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -27,31 +61,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.MagasinApplication.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Maven.magasin [clean].executor": "Run",
-    "Maven.magasin [install].executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.21264368",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.MagasinApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Maven.magasin [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.magasin [install].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/2001889/OneDrive - Cégep Limoilou/2 session/OOPII/TPs/TP3-Prog/magasin&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.21264368&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="MagasinApplication" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="tp3.application.MagasinApplication" />
@@ -93,6 +129,8 @@
       <workItem from="1714402655727" duration="765000" />
       <workItem from="1714403439861" duration="2003000" />
       <workItem from="1714407602372" duration="2465000" />
+      <workItem from="1714411084408" duration="738000" />
+      <workItem from="1714739815277" duration="7136000" />
     </task>
     <servers />
   </component>

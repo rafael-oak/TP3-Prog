@@ -41,6 +41,7 @@ public class Entrepot {
             entreposage[numeroCategorie][numeroProduit][NOMBRE_TABLETTE - NOMBRE_TABLETTE] = boite;
             reussi = true;
         }
+
         return reussi;
     }
 

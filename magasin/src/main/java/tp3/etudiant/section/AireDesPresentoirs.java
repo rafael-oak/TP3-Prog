@@ -108,11 +108,31 @@ public class AireDesPresentoirs implements AireI {
      */
     @Override
     public Collection<AbstractProduit> retireProduits(Collection<AbstractProduit> items) {
-        Collection<AbstractProduit> collection = getAllProduits();
-        viderAire();
-        collection.removeAll(items);
-        placerProduits(collection);
-        return collection;
+        Collection<AbstractProduit> produitNonRetirer = new ArrayList<AbstractProduit>();
+
+        Iterator<AbstractProduit> iterProduit = items.iterator();
+
+
+
+        boolean found = false;
+
+        while (iterProduit.hasNext()) {
+            AbstractProduit produit = iterProduit.next();
+            Iterator<Presentoir> iterPresentoir = listPresentoir.iterator();
+            while (iterPresentoir.hasNext()) {
+                Presentoir presentoir = iterPresentoir.next();
+                if (presentoir.getAllProduits().contains(produit)) {
+                    if (presentoir.retirerProduit(produit)) {
+                        found = true;
+                    }
+                }
+            }
+            if (!found) {
+                produitNonRetirer.add(produit);
+            }
+        }
+
+        return produitNonRetirer;
     }
 
     /**

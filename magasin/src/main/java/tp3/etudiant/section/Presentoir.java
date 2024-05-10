@@ -8,6 +8,8 @@ package tp3.etudiant.section;
 import java.util.Comparator;
 import tp3.application.AbstractProduit;
 import tp3.etudiant.boite.Boite;
+import tp3.etudiant.produit.AbstractInventaire;
+
 import java.util.*;
 
 public class Presentoir extends Stockage {
@@ -134,5 +136,26 @@ public class Presentoir extends Stockage {
             });
             System.out.println(liste);
         }
+    }
+
+    /**
+     * Méthode pour retirer un produit d'un presentoir en particulier et retourne true s'il réussi et false s'il ne réussi pas
+     *
+     * @param AbstractProduit   Un produit d'AbstractProduit
+     * @return boolean          retourne true s'il réussi à le retirer
+     */
+    public boolean retirerProduit(AbstractProduit produit) {
+        boolean produitRetirer = false;
+        if (contenuPresentoir.containsKey(((AbstractInventaire) produit).getNom())) {
+            List<AbstractProduit> listeProduit = contenuPresentoir.get(((AbstractInventaire) produit).getNom());
+            if (listeProduit.contains(produit)) {
+                listeProduit.remove(produit);
+                if (listeProduit.isEmpty()) {
+                    contenuPresentoir.remove(((AbstractInventaire) produit).getNom());
+                }
+                produitRetirer = true;
+            }
+        }
+        return produitRetirer;
     }
 }

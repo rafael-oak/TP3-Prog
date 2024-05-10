@@ -10,7 +10,9 @@ public abstract class AbstractProduit implements Descriptible, Cloneable, Serial
     private String nom;
     private int numSerie; // unique pour chaque produit
     private int numProduit; // associer au type de produit
+
     private LocalDateTime date = LocalDateTime.now();//la date de création
+
     private static int numSerieCompteur = 1;
     private static int numProduitCompteur =0;
 

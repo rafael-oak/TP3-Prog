@@ -15,7 +15,7 @@ public class Vrac extends Stockage implements AireI {
     private Map<String, Set<AbstractProduit>> contenuVrac;
     private Charite charite;
     private float volumeTotal;
-    public static final float VOLUME_VRAC_MAX_DECIMETRE = 500;
+    public final float VOLUME_VRAC_MAX_DECIMETRE = 500;
 
     // Constructeur du VRAC
     public Vrac() {

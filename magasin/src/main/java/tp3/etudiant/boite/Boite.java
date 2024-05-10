@@ -90,7 +90,7 @@ public class Boite implements Descriptible, Serializable {
 
     @Override
     public String decrit() {
-        return "boite-" + numeroEmballage + " #prod:" + getNumeroProduit()
+        return "boite- " + contenu.get(0).getNom() + " - " + numeroEmballage + " #prod:" + getNumeroProduit()
                 + " - contient:" + getContenu().size() + " produits";
     }
 

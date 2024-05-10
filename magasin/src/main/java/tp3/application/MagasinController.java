@@ -288,6 +288,7 @@ public class MagasinController implements UI {
         metAJourPanier();
         metAJourSectionsTrees();
         metAJourCharite();
+        metAJourPanier();
     }
 
 

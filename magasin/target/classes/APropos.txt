@@ -1,0 +1,9 @@
+TP3 Gestionnaire de magasin
+
+POOII Hiver 2024
+
+Enseignant :
+    Martin Simoneau
+
+Etudiants :
+    Zackary Dube

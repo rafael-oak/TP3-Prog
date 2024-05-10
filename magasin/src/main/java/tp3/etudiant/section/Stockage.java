@@ -65,10 +65,6 @@ public abstract class Stockage {
                 reussi = false;
                 produitNonPlacer.add(produit);
             }
-            if (!ajouteStockage(produit, produit.getNom())) {
-                reussi = false;
-                produitNonPlacer.add(produit);
-            }
         }
         if (!reussi) {
             gereSurplus(produitNonPlacer);

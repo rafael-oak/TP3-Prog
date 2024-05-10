@@ -14,8 +14,12 @@ import tp3.etudiant.client.Achat;
 import tp3.etudiant.client.Panier;
 import tp3.etudiant.produit.AbstractInventaire;
 import tp3.etudiant.section.*;
+import tp3.etudiant.utilitaire.APropos;
+import tp3.etudiant.utilitaire.ArchivationProduit;
+import tp3.etudiant.utilitaire.Historique;
 
-import java.io.File;
+import java.io.*;
+import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -28,6 +32,9 @@ public class Magasin implements Modele {
     private Entrepot entrepot;
     private AireDesPresentoirs aireDesPresentoirs;
     private Vrac vrac;
+    private Historique historique;
+    private APropos aPropos;
+    private ArchivationProduit archivationProduit;
     private Collection<Achat> achats = new ArrayList<>();
 
     // Attribut pour le client
@@ -40,6 +47,10 @@ public class Magasin implements Modele {
         vrac = new Vrac();
         panier = new Panier();
         aireDesPresentoirs = new AireDesPresentoirs(vrac);
+        historique = new Historique();
+        historique.ajoutHistorique("Ouverture application");
+        aPropos = new APropos();
+        archivationProduit = new ArchivationProduit();
     }
 
     /**
@@ -94,7 +105,9 @@ public class Magasin implements Modele {
         int boitePlacer = 0;
         boolean reussi = true;
         while (iter.hasNext() && reussi) {
-            if (entrepot.entreposeBoite(iter.next())) {
+            Boite boitePoduit = iter.next();
+            historique.ajoutHistorique(boitePoduit.decrit());
+            if (entrepot.entreposeBoite(boitePoduit)) {
                 boitePlacer++;
             } else {
                 reussi = false;
@@ -115,6 +128,7 @@ public class Magasin implements Modele {
         Iterator<Boite> iter = boites.iterator();
         while (iter.hasNext()) {
             Boite boite = iter.next();
+            historique.ajoutHistorique(boite.decrit() + " placer dans la section : " + section.decrit());
             produits.addAll(section.placerProduits(boite));
             entrepot.retireBoite(boite);
             if (produits.isEmpty()) {
@@ -140,6 +154,7 @@ public class Magasin implements Modele {
         Iterator<AbstractProduit> iterItems = items.iterator();
         while (iterItems.hasNext()) {
             AbstractProduit produit = iterItems.next();
+            historique.ajoutHistorique(produit.getNom() + " Serial : " + produit.getNumSerie() + " -> ajouter dans le panier");
             if (vrac.getAllProduits().contains(produit)) {
                 ((AbstractInventaire) produit).setSectionProduit("vrac");
             } else if (aireDesPresentoirs.getAllProduits().contains(produit)) {
@@ -151,7 +166,12 @@ public class Magasin implements Modele {
 
     @Override
     public Achat acheterPanier(String acheteur, LocalDateTime date, double rabaisGlobal) {
-        Achat achat = new Achat(acheteur, date, rabaisGlobal);
+        Iterator<AbstractProduit> iterAchat = getContenuPanier().iterator();
+        while (iterAchat.hasNext()) {
+            AbstractProduit produit = iterAchat.next();
+            historique.ajoutHistorique("Achat de produit : " + produit.getNom() + " | Serial : " + produit.getNumSerie());
+        }
+        Achat achat = new Achat(acheteur, date, rabaisGlobal, vrac);
         achat.ajoutPanierDansAchat(panier.getPanier());
         panier.vide();
         return achat;
@@ -190,12 +210,35 @@ public class Magasin implements Modele {
 
     @Override
     public void archive(File file) {
+        /*
+        FileOutputStream fos = null;
+        BufferedOutputStream bos = null;
+        DataOutputStream dos = null;
+        try {
+            fos = new FileOutputStream(file);
+            bos = new BufferedOutputStream(fos);
+            dos = new DataOutputStream(bos);
 
+
+        } catch (FileNotFoundException fnfe) {
+            System.out.println("Une erreur c'est produite");
+        } catch (IOException ioe) {
+            System.out.println("Une erreur c'est produite");
+        } finally {
+            try {
+                if (dos != null) {
+                    dos.close();
+                }
+            } catch (IOException ioe) {
+                System.out.println("Une erreur c'est produite");
+            }
+        }
+        */
     }
 
     @Override
     public void reconstruit(File file) {
-
+        System.out.println();
     }
 
     @Override
@@ -205,12 +248,74 @@ public class Magasin implements Modele {
 
     @Override
     public String init(UI ui) {
-        return null;
+        Collection<AbstractProduit> collectionProduit = new ArrayList<AbstractProduit>();
+        Iterator<AbstractProduit> iterProduit = ui.getProduitsDisponibles().iterator();
+        while (iterProduit.hasNext()) {
+            AbstractProduit produit = iterProduit.next();
+            collectionProduit.add(produit);
+        }
+
+        archivationProduit.ecrireDansFichier(collectionProduit);
+
+
+
+
+        // CREATION DU FICHIER produits.mag
+        FileWriter frMag = null;
+        BufferedWriter brMag = null;
+        try {
+            frMag = new FileWriter("working/archive/produit.mag");
+            brMag = new BufferedWriter(frMag);
+            Iterator<AbstractProduit> iterProduit = ui.getProduitsDisponibles().iterator();
+            while (iterProduit.hasNext()) {
+                AbstractProduit produit = iterProduit.next();
+                brMag.write(produit.decrit());
+            }
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (brMag != null) {
+                    brMag.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return aPropos.lireFichierAPropos();
     }
 
     @Override
     public void stop() {
+        historique.ajoutHistorique("L'application s'est arreter");
 
+        FileReader fr = null;
+        BufferedReader br = null;
+        try {
+            fr = new FileReader("working/archive/produit.mag");
+            br = new BufferedReader(fr);
+            String ligneCourante = br.readLine();
+            while (ligneCourante != null) {
+                br.readLine();
+
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (br != null) {
+                    br.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public Achat acheterPanier(String achateur, LocalDateTime dateTime) {

@@ -261,33 +261,7 @@ public class Magasin implements Modele {
 
 
         // CREATION DU FICHIER produits.mag
-        FileWriter frMag = null;
-        BufferedWriter brMag = null;
-        try {
-            frMag = new FileWriter("working/archive/produit.mag");
-            brMag = new BufferedWriter(frMag);
-            Iterator<AbstractProduit> iterProduit = ui.getProduitsDisponibles().iterator();
-            while (iterProduit.hasNext()) {
-                AbstractProduit produit = iterProduit.next();
-                brMag.write(produit.decrit());
-            }
 
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (brMag != null) {
-                    brMag.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return aPropos.lireFichierAPropos();
-    }
 
     @Override
     public void stop() {

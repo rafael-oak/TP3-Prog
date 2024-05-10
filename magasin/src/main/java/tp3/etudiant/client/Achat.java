@@ -19,6 +19,7 @@ public class Achat implements Descriptible {
     private String acheteur;
     private int numFacturation = 0;
     private static int compteurFacture = 0;
+    private static final int DELAI_FIXE_RABAISP = 4;
     private LocalDateTime momentAchat;
 
     public Achat(String acheteur, LocalDateTime momentAchat, double rabaisGlobal, Vrac vrac) {
@@ -115,7 +116,7 @@ public class Achat implements Descriptible {
             if (((AbstractInventaire) produit).getSectionProduit().equals("vrac")) {
                 this.volumeTotalVrac += ((AbstractInventaire) produit).getVolumeProduit();
             } else if (((AbstractInventaire) produit).getSectionProduit().equals("presentoir")) {
-                //rabaisPresentoir += calculeRabaisPresentoir(produit);
+                rabaisPresentoir += calculeRabaisPresentoir(produit);
             }
         }
         return calculeMontantRabaisVrac();
@@ -126,8 +127,8 @@ public class Achat implements Descriptible {
         return calculeMontantBrute() * (rabais / 100);
     }
     // Calculer montant rabais Vrac (AVENIR)
-    public double calculeRabaisPresentoir() {
-        return 0;
+    public double calculeRabaisPresentoir(AbstractProduit produit) {
+        return (((produit.getDate().getDayOfMonth()) - momentAchat.getDayOfMonth()) > DELAI_FIXE_RABAISP)? calculeMontantBrute() * (rabaisPresentoir / 100) : 0;;
     }
     // Calculer le montant total des rabais
     public double calculeMontantRabaisTotal() {
@@ -137,4 +138,5 @@ public class Achat implements Descriptible {
     public double calculeMontantTotal() {
         return (calculeMontantBrute() + calculeMontantTaxes()) - calculeMontantRabaisTotal();
     }
+
 }

@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83d90ce8-d7a9-40a9-8829-17c2c8ceddb1" name="Changes" comment="" />
+    <list default="true" id="83d90ce8-d7a9-40a9-8829-17c2c8ceddb1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tp3/etudiant/Magasin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tp3/etudiant/Magasin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tp3/etudiant/client/Achat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tp3/etudiant/client/Achat.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +20,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -37,8 +44,9 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/zacka/Desktop/SESSION-2/PROGRAMMATION_ORIENTÉE_OBJET_II/tp2-ZD-RCM/magasin/src/main/resources/tp3/application",
+    "last_opened_file_path": "C:/Users/2001889/OneDrive - Cégep Limoilou/2 session/OOPII/TPs/TP3-Prog/magasin",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -104,6 +112,8 @@
       <workItem from="1715035682014" duration="547000" />
       <workItem from="1715277861216" duration="12274000" />
       <workItem from="1715343537149" duration="3980000" />
+      <workItem from="1715348262935" duration="8000" />
+      <workItem from="1715348371848" duration="1760000" />
     </task>
     <servers />
   </component>
@@ -117,6 +127,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/tp3/etudiant/Magasin.java</url>
           <line>213</line>
           <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/tp3/application/MagasinApplication.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

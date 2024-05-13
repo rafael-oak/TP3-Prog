@@ -20,6 +20,7 @@ public class Achat implements Descriptible {
     private int numFacturation = 0;
     private static int compteurFacture = 0;
     private static final int DELAI_FIXE_RABAISP = 4;
+    private static final double TAUX_RABAIS_PRESENTOIRE = 10;
     private LocalDateTime momentAchat;
 
     public Achat(String acheteur, LocalDateTime momentAchat, double rabaisGlobal, Vrac vrac) {
